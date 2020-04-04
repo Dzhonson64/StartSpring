@@ -7,18 +7,30 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/> <!--    подключаем свойсва для полей из отдельного конфигурацинного файла-->
+
     <bean id="musicBean"
           class="ru.kirill.springcourse.RockMusic">
     </bean>
+
+    <bean id="rockMusic"
+          class="ru.kirill.springcourse.RockMusic">
+    </bean>
+
+    <bean id="classicalMusic"
+          class="ru.kirill.springcourse.ClassicalMusic">
+    </bean>
+
     <bean id="musicPlayer"
           class="ru.kirill.springcourse.MusicPlayer">
-       <property name="music" ref="musicBean"/> <!-- Передаём в cеттер (его название это всегда название метода без "set") MusicPlayer ссылку на musicBean (внедряем зависимость)-->
+       <property name="music">
+           <list>
+               <ref bean="rockMusic"/>
+               <ref bean="classicalMusic"/>
+           </list>
+       </property>
 
-<!--        <property name="name" value="Some name"/>  Передаём значение "Some name" в поле "name" через сеттер setName -->
-<!--        <property name="volume" value="50"/>  Передаём значение "50" в поле "volume" через сеттер setVolume -->
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
 
     </bean>
 
