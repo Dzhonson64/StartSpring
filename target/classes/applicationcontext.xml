@@ -7,9 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-
-    <context:property-placeholder location="classpath:musicPlayer.properties"/> <!--    подключаем свойсва для полей из отдельного конфигурацинного файла-->
-
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
     <bean id="musicBean"
           class="ru.kirill.springcourse.RockMusic">
     </bean>
@@ -19,8 +17,6 @@
 
 <!--        <property name="name" value="Some name"/>  Передаём значение "Some name" в поле "name" через сеттер setName -->
 <!--        <property name="volume" value="50"/>  Передаём значение "50" в поле "volume" через сеттер setVolume -->
-
-<!--        Применяем значения из удалённого конфигурационного файла-->
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
 
