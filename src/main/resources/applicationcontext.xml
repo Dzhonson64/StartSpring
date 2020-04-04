@@ -10,5 +10,9 @@
     <bean id="musicBean"
           class="ru.kirill.springcourse.RockMusic">
     </bean>
+    <bean id="musicPlayer"
+          class="ru.kirill.springcourse.MusicPlayer">
+       <constructor-arg ref="musicBean"/> <!-- Передаём в конструктор MusicPlayer ссылку на musicPlayer (внедряем зависимость)-->
+    </bean>
 
 </beans>
