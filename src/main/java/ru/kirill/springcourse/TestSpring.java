@@ -11,9 +11,11 @@ public class TestSpring {
         );
 
         /* Получаем бин (объект), где указываем перым параметром  id из AppContext, вторым класс, который будет возвращён*/
-        TestBean testBean = context.getBean("testBean", TestBean.class);
+        Music music = context.getBean("musicBean", Music.class);
 
-        System.out.println(testBean.getName());
+        MusicPlayer musicPlayer = new MusicPlayer(music);
+
+        musicPlayer.playMusic();
 
         /* обязательно закрываем AppContext */
         context.close();
