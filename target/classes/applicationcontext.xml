@@ -9,11 +9,26 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
     <bean id="musicBean"
-          class="ru.kirill.springcourse.RockMusic">
+          class="ru.kirill.springcourse.ClassicalMusic"
+            init-method="doMyInit"
+            destroy-method="doMyDestroy"
+            factory-method="getFactoryClassicalMusic">
+        <!--
+        Добавили методы, который вызывают в начале и в конце жини объекта.
+
+        - модификаторы доступа могут быть любыми
+        - любой возвращаемый тип
+        - любое название методов
+        - НЕ ДОЛЖНЫ принимать аргументов
+        - если scope="prototype" Spring НЕ ВЫЗЫВАЕТ destroy-method
+
+        Добавлен фабричный метод getFactoryClassicalMusic()
+         -->
+
     </bean>
     <bean id="musicPlayer"
           class="ru.kirill.springcourse.MusicPlayer"
-            scope="prototype">  <!-- Изменение области видимости с Singleton (который по умолч) на Prototype. Теперь возвращаться всегда будет новый объект -->
+            scope="prototype">  <!-- Изменение с Singleton (который по умолч) на Prototype. Теперь возвращаться всегда будет новый объект -->
 
 
 

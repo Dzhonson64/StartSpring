@@ -9,13 +9,11 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationcontext.xml"
         );
+        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
+        ClassicalMusic classicalMusi2c = context.getBean("musicBean", ClassicalMusic.class);
+        System.out.println(classicalMusic.getSong());
+        System.out.println(classicalMusi2c.getSong());
 
-        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-
-        System.out.println(firstMusicPlayer==secondMusicPlayer);
-        System.out.println(firstMusicPlayer);
-        System.out.println(secondMusicPlayer);
 
 
         /* обязательно закрываем AppContext */
