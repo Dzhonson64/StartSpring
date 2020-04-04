@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<>();
+    private Music music;
 
     private String name;
     private int volume;
@@ -26,21 +26,19 @@ public class MusicPlayer {
     }
 
     // Inversion Control (IoC)
-    public MusicPlayer(List<Music> musicList) {
-        this.musicList = musicList;
+    public MusicPlayer(Music music) {
+        this.music = music;
     }
 
     /* В старых версия Spring его у нас только сеттер принимает значения, то дефолтный конструктор явно определяем */
     public MusicPlayer() {
     }
 
-    public void setMusic(List<Music> musicList) {
-        this.musicList = musicList;
+    public void setMusic(Music music) {
+        this.music = music;
     }
 
     public void playMusic() {
-        for (Music music : musicList) {
-            System.out.println(music.getSong());
-        }
+        System.out.println(music.getSong());
     }
 }

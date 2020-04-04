@@ -2,6 +2,7 @@ package ru.kirill.springcourse;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+
 public class TestSpring {
     public static void main(String[] args) {
 
@@ -9,10 +10,9 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationcontext.xml"
         );
-        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
-        ClassicalMusic classicalMusi2c = context.getBean("musicBean", ClassicalMusic.class);
-        System.out.println(classicalMusic.getSong());
-        System.out.println(classicalMusi2c.getSong());
+        Music music = context.getBean("musicBean", Music.class);
+        MusicPlayer musicPlayer = new MusicPlayer(music);
+        musicPlayer.playMusic();
 
 
 

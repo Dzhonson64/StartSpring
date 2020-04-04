@@ -7,31 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-    <bean id="musicBean"
-          class="ru.kirill.springcourse.ClassicalMusic"
-            init-method="doMyInit"
-            destroy-method="doMyDestroy"
-            factory-method="getFactoryClassicalMusic">
-        <!--
-        1) Добавили методы, который вызывают в начале и в конце жини объекта.
+    <context:component-scan base-package="ru.kirill.springcourse"/>
 
-        - модификаторы доступа могут быть любыми
-        - любой возвращаемый тип
-        - любое название методов
-        - НЕ ДОЛЖНЫ принимать аргументов
-        - если scope="prototype" Spring НЕ ВЫЗЫВАЕТ destroy-method
-
-        2) Добавлен фабричный метод getFactoryClassicalMusic()
-         -->
-
-    </bean>
-    <bean id="musicPlayer"
-          class="ru.kirill.springcourse.MusicPlayer"
-            scope="prototype">  <!-- Изменение с Singleton (который по умолч) на Prototype. Теперь возвращаться всегда будет новый объект -->
-
-
-
-    </bean>
 
 </beans>
