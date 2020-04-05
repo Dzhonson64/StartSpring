@@ -1,39 +1,23 @@
 package ru.kirill.springcourse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MusicPlayer {
+    @Autowired
     private Music music;
 
-    private String name;
-    private int volume;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
     // Inversion Control (IoC)
+    @Autowired
     public MusicPlayer(Music music) {
         this.music = music;
     }
 
-    /* В старых версия Spring его у нас только сеттер принимает значения, то дефолтный конструктор явно определяем */
-    public MusicPlayer() {
-    }
-
+    @Autowired
     public void setMusic(Music music) {
         this.music = music;
     }
