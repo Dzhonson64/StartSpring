@@ -9,12 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Component
 public class MusicPlayer {
-
-    public MusicPlayer(Music music1, Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
+    List<Music> musicList;
+    public MusicPlayer(List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     private Music music1;
@@ -33,11 +31,9 @@ public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
 
-    public void playMusic(TypeMucis type) {
-        if (type == TypeMucis.CLASSICAL){
-            System.out.println(music2.getSong());
-        }else{
-            System.out.println(music1.getSong());
+    public void playMusic() {
+        for (Music item:musicList){
+            System.out.println(item.getSong());
         }
     }
 }

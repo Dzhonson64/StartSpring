@@ -14,9 +14,6 @@ public class RockMusic implements Music{
 
     public RockMusic(List<String> musics) {
         this.musics = musics;
-        musics.add("rocks1");
-        musics.add("rocks2");
-        musics.add("rocks13");
     }
 
     public String getSong() {

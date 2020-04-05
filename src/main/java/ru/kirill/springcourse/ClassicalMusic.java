@@ -12,9 +12,6 @@ public class ClassicalMusic implements Music {
 
     public ClassicalMusic(List<String> musics) {
         this.musics = musics;
-        musics.add("classic1");
-        musics.add("classic2");
-        musics.add("classic3");
     }
 
     @Override
