@@ -11,9 +11,8 @@ import java.util.Random;
 
 @Component
 public class MusicPlayer {
-    @Autowired
 
-    public MusicPlayer(@Qualifier("rockMusic")Music music1, @Qualifier("classicalMusic")Music music2) {
+    public MusicPlayer(Music music1, Music music2) {
         this.music1 = music1;
         this.music2 = music2;
     }

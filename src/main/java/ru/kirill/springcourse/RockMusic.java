@@ -11,7 +11,7 @@ import java.util.Random;
 public class RockMusic implements Music{
     List<String> musics;
 
-    @Autowired
+
     public RockMusic(List<String> musics) {
         this.musics = musics;
         musics.add("rocks1");
@@ -19,7 +19,6 @@ public class RockMusic implements Music{
         musics.add("rocks13");
     }
 
-    @Override
     public String getSong() {
         Random rnd = new Random();
         return musics.get(rnd.nextInt(musics.size()));
