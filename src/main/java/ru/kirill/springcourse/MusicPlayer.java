@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class MusicPlayer {
@@ -19,8 +20,11 @@ public class MusicPlayer {
     private Music music1;
     private Music music2;
 
-    public void playMusic() {
-        System.out.println(music1.getSong());
-        System.out.println(music2.getSong());
+    public void playMusic(TypeMucis type) {
+        if (type == TypeMucis.CLASSICAL){
+            System.out.println(music2.getSong());
+        }else{
+            System.out.println(music1.getSong());
+        }
     }
 }
